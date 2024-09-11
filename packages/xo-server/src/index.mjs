@@ -21,6 +21,7 @@ import stoppable from 'stoppable'
 import WebServer from 'http-server-plus'
 import WebSocket, { WebSocketServer } from 'ws'
 import { asyncMap } from '@xen-orchestra/async-map'
+import { createCaptureTransport } from '@xen-orchestra/log/capture'
 import { xdgConfig } from 'xdg-basedir'
 import { createLogger } from '@xen-orchestra/log'
 import { createRequire } from 'module'
@@ -63,13 +64,15 @@ const [APP_NAME, APP_VERSION] = (() => {
 
 // ===================================================================
 
-configure([
-  {
-    filter: process.env.DEBUG,
-    level: 'info',
-    transport: transportConsole(),
-  },
-])
+configure(
+  createCaptureTransport([
+    {
+      filter: process.env.DEBUG,
+      level: 'info',
+      transport: transportConsole(),
+    },
+  ])
+)
 
 const log = createLogger('xo:main')
 
