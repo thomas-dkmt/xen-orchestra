@@ -2,15 +2,22 @@
   <ComponentStory
     v-slot="{ properties, settings }"
     :params="[
-      prop('status').enum('normal', 'warning', 'danger').required().preset('normal').widget(),
-      prop('required').bool().widget(),
+      prop('accent').enum('brand', 'warning', 'danger').required().preset('brand').widget(),
+      prop('disabled').bool().widget(),
       prop('href').str().widget(),
-      slot(),
-      setting('defaultSlot').widget(text()).preset('Some label'),
       iconProp(),
+      prop('placeholder').str().widget(),
+      prop('required').bool().widget(),
+      slot(),
+      slot('info'),
+      setting('defaultSlot').widget(text()).preset('Some label'),
+      setting('info').widget(text()).preset('Lorem ipsum dolor sit amet, consectetur adipiscing elit.'),
     ]"
   >
-    <InputTextArea v-bind="properties">{{ settings.defaultSlot }}</InputTextArea>
+    <InputTextArea v-bind="properties">
+      {{ settings.defaultSlot }}
+      <template v-if="settings.info" #info>{{ settings.info }}</template>
+    </InputTextArea>
   </ComponentStory>
 </template>
 
