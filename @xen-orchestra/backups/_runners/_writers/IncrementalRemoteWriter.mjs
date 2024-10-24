@@ -150,7 +150,7 @@ export class IncrementalRemoteWriter extends MixinRemoteWriter(AbstractIncrement
         // forbid any kind of loop
         assert.ok(basename(parentPath) < basename(path), `vhd must be sorted to be chained`)
         // re-chainVhd is mandatory
-        // since the parent maye be a alias or not
+        // since the parent may be a alias or not
         // and the child may be the other
         await chainVhd(handler, parentPath, handler, path)
       }
