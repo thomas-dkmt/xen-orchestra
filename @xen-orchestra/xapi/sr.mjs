@@ -30,7 +30,7 @@ class Sr {
       host,
       device_config,
       physical_size,
-      name_label,
+      name_label: name_label.trim(),
       name_description,
       type,
       content_type,

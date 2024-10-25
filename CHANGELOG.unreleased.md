@@ -12,6 +12,7 @@
 > Users must be able to say: “Nice enhancement, I'm eager to test it”
 
 - [Home/VMs] Ability to filter by MAC address (don't forget quotes: `"70:1A:83:62:90:D0"`)
+- [Vm/Host/Pool/SR] trim name when updating it (PR [#8071](https://github.com/vatesfr/xen-orchestra/pull/8071))
 
 ### Bug fixes
 

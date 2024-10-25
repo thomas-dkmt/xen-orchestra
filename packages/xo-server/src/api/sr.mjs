@@ -21,7 +21,7 @@ export async function set({
 
   await Promise.all([
     nameDescription !== undefined && sr.set_name_description(nameDescription),
-    nameLabel !== undefined && sr.set_name_label(nameLabel),
+    nameLabel !== undefined && sr.set_name_label(nameLabel.trim()),
   ])
 }
 
@@ -180,7 +180,7 @@ export async function createIso({
     device_config: deviceConfig,
     host: host._xapiRef,
     name_description: nameDescription,
-    name_label: nameLabel,
+    name_label: nameLabel.trim(),
     shared: type !== 'local',
     type: 'iso',
   })
