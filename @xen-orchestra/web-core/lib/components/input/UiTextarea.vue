@@ -1,4 +1,4 @@
-<!-- v1 -->
+<!-- v2 -->
 <template>
   <div class="ui-textarea">
     <VtsLabel v-if="slots.default" :accent="labelAccent" :required :icon :href><slot /></VtsLabel>
