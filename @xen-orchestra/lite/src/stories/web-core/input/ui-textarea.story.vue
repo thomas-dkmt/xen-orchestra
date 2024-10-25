@@ -2,6 +2,7 @@
   <ComponentStory
     v-slot="{ properties, settings }"
     :params="[
+      model().type('string').preset(''),
       prop('accent').enum('brand', 'warning', 'danger').required().preset('brand').widget(),
       prop('disabled').bool().widget(),
       prop('href').str().widget(),
@@ -14,16 +15,16 @@
       setting('info').widget(text()).preset('Lorem ipsum dolor sit amet, consectetur adipiscing elit.'),
     ]"
   >
-    <InputTextArea v-bind="properties">
+    <UiTextarea v-bind="properties">
       {{ settings.defaultSlot }}
       <template v-if="settings.info" #info>{{ settings.info }}</template>
-    </InputTextArea>
+    </UiTextarea>
   </ComponentStory>
 </template>
 
 <script lang="ts" setup>
 import ComponentStory from '@/components/component-story/ComponentStory.vue'
-import { iconProp, prop, setting, slot } from '@/libs/story/story-param'
+import { iconProp, prop, setting, slot, model } from '@/libs/story/story-param'
 import { text } from '@/libs/story/story-widget'
-import InputTextArea from '@core/components/input/InputTextArea.vue'
+import UiTextarea from '@core/components/input/UiTextarea.vue'
 </script>
