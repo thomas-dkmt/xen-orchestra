@@ -380,7 +380,10 @@ const methods = {
 
     nameDescription: true,
 
-    nameLabel: true,
+    nameLabel: {
+      set: 'name_label',
+      preprocess: str => str.trim(),
+    },
 
     notes: {
       get: vm => vm.other_config['xo:notes'],
