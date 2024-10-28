@@ -1,4 +1,4 @@
-# Backups and Disaster Recovery
+# Backups and Full Replication
 
 This section is dedicated to any existing means to rollback or backup your VMs in Xen Orchestra.
 
